@@ -624,6 +624,10 @@ ERROR
     instrument 'ruby.create_database_yml' do
       log("create_database_yml") do
         return unless File.directory?("config")
+        if File.exists?("config/database.yml")
+          topic("You already seem to have a config/database.yml. Using that instead of DATABASE_URL")
+          return
+        end
         topic("Writing config/database.yml to read from DATABASE_URL")
         File.open("config/database.yml", "w") do |file|
           file.puts <<-DATABASE_YML
