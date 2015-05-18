@@ -9,4 +9,3 @@ These scripts are intended to be run from the buildpack root. E.g:
 ## prerequisites
 To upload these to the cloud foundry repository for buildpack dependencies, you must have access to this repository.
 If you want to use these scripts for your own dependencies, you will need to provide your own s3 bucket and credentials.
-
