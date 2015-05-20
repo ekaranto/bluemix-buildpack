@@ -77,8 +77,10 @@ module LanguagePack
     def none
       if @app[:last_version] && !@app[:is_new]
         @app[:last_version]
+        DEFAULT_VERSION
       else
         DEFAULT_VERSION
+        puts "USING #{DEFAULT_VERSION}"
       end
     end
 
