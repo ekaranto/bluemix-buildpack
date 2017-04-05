@@ -2,7 +2,7 @@
 language: ruby
 default_versions:
 - name: ruby
-  version: 2.3.3
+  version: 2.2.5
 - name: node
   version: 4.8.0
 - name: mqlibs
@@ -120,7 +120,7 @@ dependencies:
   - cflinuxfs2
 - name: mqlibs
   version: 8.0.0.6
-  uri: https://wireframe.ferocia.com.au/mqlibs-8.0.0.6-WS-MQC-Redist-LinuxX64.tar.gz
+  uri: https://mqcredis.c.bendigobank.com.au/mqlibs-8.0.0.6-WS-MQC-Redist-LinuxX64.tar.gz
   md5: 100fa5a7f7a0d6bf1b8b604199ddf64f
   cf_stacks:
   - cflinuxfs2
