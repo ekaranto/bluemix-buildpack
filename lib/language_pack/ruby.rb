@@ -7,6 +7,7 @@ require "language_pack/base"
 require "language_pack/ruby_version"
 require "language_pack/helpers/node_installer"
 require "language_pack/helpers/jvm_installer"
+require "language_pack/helpers/mqlibs_installer"
 require "language_pack/version"
 
 # base Ruby Language Pack. This is for any base ruby app.
@@ -16,7 +17,7 @@ class LanguagePack::Ruby < LanguagePack::Base
   LIBYAML_PATH         = "libyaml-#{LIBYAML_VERSION}"
   BUNDLER_VERSION      = "1.9.7"
   BUNDLER_GEM_PATH     = "bundler-#{BUNDLER_VERSION}"
-  DEFAULT_RUBY_VERSION = "ruby-2.2.3"
+  DEFAULT_RUBY_VERSION = "ruby-2.2.2"
   RBX_BASE_URL         = "https://binaries.rubini.us/heroku"
   NODE_BP_PATH         = "vendor/node/bin"
 
@@ -41,6 +42,7 @@ class LanguagePack::Ruby < LanguagePack::Base
     @fetchers[:mri]    = LanguagePack::Fetcher.new(VENDOR_URL, @stack)
     @fetchers[:rbx]    = LanguagePack::Fetcher.new(RBX_BASE_URL, @stack)
     @node_installer    = LanguagePack::NodeInstaller.new(@stack)
+    @mqlibs_installer  = LanguagePack::MqlibsInstaller.new(@stack)
     @jvm_installer     = LanguagePack::JvmInstaller.new(slug_vendor_jvm, @stack)
   end
 
@@ -96,6 +98,7 @@ WARNING
       setup_language_pack_environment
       setup_export
       setup_profiled
+      install_mqlibs
       allow_git do
         install_bundler_in_app
         build_bundler
