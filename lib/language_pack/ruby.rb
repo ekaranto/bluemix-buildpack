@@ -415,6 +415,13 @@ ERROR
     @new_app ||= !File.exist?("vendor/heroku")
   end
 
+   # Installs MQ libraries
+   def install_mqlibs
+     instrument 'ruby.install_mqlibs' do
+       @mqlibs_installer.install
+     end
+   end
+
   # vendors JVM into the slug for JRuby
   def install_jvm(forced = false)
     instrument 'ruby.install_jvm' do
