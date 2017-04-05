@@ -2,7 +2,7 @@
 language: ruby
 default_versions:
 - name: ruby
-  version: 2.2.6
+  version: 2.2.2
 - name: node
   version: 4.8.0
 - name: mqlibs
@@ -82,6 +82,12 @@ dependencies:
   md5: 15419a8d32cc384d3b9fe23f93d7441d
   cf_stacks:
   - cflinuxfs2
+- name: ruby
+  version: 2.2.2
+  uri: https://pivotal-buildpacks.s3.amazonaws.com/concourse-binaries/ruby/ruby-2.2.2-linux-x64.tgz
+  md5: 3a66010947862c1225f54933a3697006
+  cf_stacks:
+   - cflinuxfs2
 - name: ruby
   version: 2.1.9
   md5: 0042edb77be85274acb2c2a23c90e0c1
