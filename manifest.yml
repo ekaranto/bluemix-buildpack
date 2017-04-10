@@ -43,10 +43,16 @@ dependencies:
     md5: 94665f3a39e670507828f5084a40b669
     cf_stacks:
       - cflinuxfs2
+  #- name: bundler
+  #  version: 1.9.7
+  #  uri: https://pivotal-buildpacks.s3.amazonaws.com/ruby/binaries/shared/bundler-1.9.7.tgz
+  #  md5: 895b476cc0eba8b2cd978a5c5767bc71
+  #  cf_stacks:
+  #    - cflinuxfs2
   - name: bundler
-    version: 1.9.7
-    uri: https://pivotal-buildpacks.s3.amazonaws.com/ruby/binaries/shared/bundler-1.9.7.tgz
-    md5: 895b476cc0eba8b2cd978a5c5767bc71
+    version: 1.14.5
+    uri: https://buildpacks.cloudfoundry.org/dependencies/bundler/bundler-1.14.5-248bdf35.tgz
+    md5: 248bdf357dc22a93145d3ec77d3a9304
     cf_stacks:
       - cflinuxfs2
   - name: rails_log_stdout
