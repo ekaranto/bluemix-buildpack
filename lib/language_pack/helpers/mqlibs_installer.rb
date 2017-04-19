@@ -5,6 +5,7 @@ class LanguagePack::MqlibsInstaller
 
   def initialize(stack)
     @fetcher = LanguagePack::Fetcher.new(MQLIBS_BASE_URL)
+    @vendor_dir = 'vendor/mqm'
   end
 
   def version
@@ -12,13 +13,10 @@ class LanguagePack::MqlibsInstaller
   end
 
   def install
-      @fetcher.fetch_untar("mqlibs-8.0.0.6-WS-MQC-Redist-LinuxX64.tar.gz")
-      FileUtils.rm_rf('mqlibs-8.0.0.6-WS-MQC-Redist-LinuxX64')
-  end
-
-  def self.default_node_version
-    bin_path = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "..", "compile-extensions", "bin"))
-    manifest_path = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "..", "manifest.yml"))
-    `#{bin_path}/default_version_for #{manifest_path} mqlibs`.chomp
+     FileUtils.mkdir_p(@vendor_dir)
+     Dir.chdir(@vendor_dir) do
+       @fetcher.fetch_untar("mqlibs-8.0.0.6-WS-MQC-Redist-LinuxX64.tar.gz")
+     end
+     FileUtils.rm_rf('mqlibs-8.0.0.6-WS-MQC-Redist-LinuxX64')
   end
 end
